@@ -5,58 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marcador de Bàsquet</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="funcions.js"></script>
+
 </head>
+
 <body>
 <div class="container">
   <header class="title text-center">Marcador de Bàsquet</header>
-  <nav class="links">Enllaços a altres pàgines</nav>
   <div class="period-container text-center">
     <div id="period" class="period-number">1</div>
   </div>
-  <table class="scoreboard">
+
+  <table class="table table-dark">
+    <thread>
     <tbody>
     <tr>
       <td>Equipo A</td>
       <td>Equipo B</td>
     </tr>
     <tr>
-      <td id="points-a">60</td>
-      <td id="points-b">45</td>
+      <td id="points-a">0</td>
+      <td id="points-b">0</td>
     </tr>
     <tr>
-      <td id="fouls-a">3</td>
-      <td id="fouls-b">2</td>
+      <td id="fouls-a">0</td>
+      <td id="fouls-b">0</td>
     </tr>
     <tr>
       <td>
-        <button class="score-button">+1</button>
-        <button class="score-button">+2</button>
-        <button class="score-button">+3</button>
-        <button class="score-button">Falta</button>
+        <button class="score-button" onclick="sumaA(1)">+1</button>
+        <button class="score-button" onclick="sumaA(2)">+2</button>
+        <button class="score-button" onclick="sumaA(3)">+3</button>
+        <button class="score-button" onclick="sumaFA(1)">Falta</button>
       </td>
       <td>
-        <button class="score-button">+1</button>
-        <button class="score-button">+2</button>
-        <button class="score-button">+3</button>
-        <button class="score-button">Falta</button>
+        <button class="score-button" onclick="sumaB(1)">+1</button>
+        <button class="score-button" onclick="sumaB(2)">+2</button>
+        <button class="score-button" onclick="sumaB(3)">+3</button>
+        <button class="score-button" onclick="sumaFB(1)">Falta</button>
       </td>
     </tr>
     </tbody>
   </table>
+
   <div class="gestor">
-    <td><button class="score-button" id="reset">Iniciar partida</button></td>
-    <td><button class="score-button" id="canviPeriode">Canvi de període</button></td>
+    <td><button class="score-button" id="reset" onclick="inicialitzar()">Iniciar partida</button></td>
+    <td><button class="score-button" id="canviPeriode" onclick="period1(1)">Canvi de període</button></td>
   </div>
-  <div class="history">
-    <h2>Historial de la Partida</h2>
-    <p>3-0</p>
-    <p>3-2</p>
-    <p>...</p>
 
+
+
+
+<body>
+  <div class="container mt-5" >
+    <h1 class="text-center" id="cronometro">Contador</h1>
+
+    <!-- Cronómetro -->
+    <div class="row mt-4" id="cronometro">
+      <div class="col text-center">
+        <h2 id="timer">10:00</h2>
+        <button class="btn btn-success" onclick="startCountdown()">Inicia Contador</button>
+        <button class="btn btn-danger" onclick="resetCountdown()">Reiniciar Contador</button>
+        <button class="btn btn-warning" onclick="pauseCountdown()">Pausa</button>
+        <button class="btn btn-info" onclick="resumeCountdown()">Reanudar</button>
+      </div>
+    </div>
   </div>
-</div>
+
+
 </body>
+
+  <div class="history" id="historic">
+  <h2>Historial de la Partida</h2>
+</div>
+  
 </html>
-
-
-
